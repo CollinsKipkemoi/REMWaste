@@ -15,7 +15,7 @@ import type { SkipData } from "@/types"
 import skipImg from "@/assets/6-yarder.png"
 
 
-export default function Skip({ skip }: { skip: SkipData }) {
+export default function Skip({ skip, onClick }: { skip: SkipData, onClick: (skip: SkipData) => void }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -28,7 +28,7 @@ export default function Skip({ skip }: { skip: SkipData }) {
                 } ${skip.forbidden ? 'opacity-75' : ''}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => onClick(skip)}
         >
             <CardContent className="p-0">
                 <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-6 pb-4">
