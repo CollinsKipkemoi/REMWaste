@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import Skip from "@/components/skip"
 import type { SkipData } from "@/types"
+import SkipDisplayDrawer from "@/components/drawer"
 
 function SkipChooser() {
     const [skips, setSkips] = useState<SkipData[]>([])
     const [selectedSkip, setSelectedSkip] = useState<SkipData | null>(null)
+    const [drawerOpen, setDrawerOpen] = useState(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -17,7 +19,7 @@ function SkipChooser() {
 
     const handleSkipClick = (skip: SkipData) => {
         setSelectedSkip(skip)
-        console.log(`Selected skip: ${skip.size}`)
+        setDrawerOpen(true)
     }
 
     return (
@@ -29,6 +31,12 @@ function SkipChooser() {
                     <Skip key={skip.id} skip={skip} onClick={() => handleSkipClick(skip)} />
                 ))}
             </div>
+            <SkipDisplayDrawer
+                skip={selectedSkip}
+                open={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+                onContinue={() => setDrawerOpen(false)}
+            />
         </div>
     )
 }
