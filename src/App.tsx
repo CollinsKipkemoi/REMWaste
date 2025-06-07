@@ -1,7 +1,8 @@
+import TimeFrame from "@/components/time-frame"
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="bg-background min-h-screen w-screen p-10">
+      <TimeFrame />
     </div>
   )
 }
