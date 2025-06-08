@@ -46,12 +46,12 @@ export default function Skip({ skip, onClick }: { skip: SkipData, onClick: (skip
                                 Restricted
                             </Badge>
                         )}
-                        {skip.allowed_on_road && (
+                        (
                             <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
                                 <Truck className="w-3 h-3 mr-1" />
-                                Road OK
+                                {skip.allowed_on_road ? "Allowed on road" : "Not allowed on road"}
                             </Badge>
-                        )}
+                        )
                     </div>
 
                     <div className="w-full h-36 flex items-center justify-center bg-[#f8fafc] dark:bg-[#18181b]">
