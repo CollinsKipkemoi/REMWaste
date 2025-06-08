@@ -1,5 +1,6 @@
 import { X, MapPin, Hash, DollarSign, Truck, Sparkles } from "lucide-react";
 import type { SkipData } from "@/types";
+import { toast } from "sonner"
 
 type SkipDisplayDrawerProps = {
     skip: SkipData | null;
@@ -91,13 +92,51 @@ export default function SkipDisplayDrawer({
                         <div className="flex gap-3 w-full lg:w-auto">
                             <button
                                 className="flex-1 lg:flex-none py-2 px-4 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-200 hover:from-primary/90 hover:to-accent/90 hover:scale-105 active:scale-95"
-                                onClick={onContinue}
+                                onClick={() => {
+                                    toast("Coming soon!", {
+                                        description: "This feature is not available yet.",
+                                        action: {
+                                            label: "Close",
+                                            onClick: () => {
+                                                toast.dismiss()
+                                            }
+                                        },
+                                        position: "top-center",
+                                        style: {
+                                            backgroundColor: "var(--background)",
+                                            color: "var(--foreground)",
+                                            border: "1px solid var(--border)",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                        }
+                                    })
+                                    onContinue();
+                                }}
                             >
                                 Continue Booking
                             </button>
                             <button
                                 className="flex-1 lg:flex-none px-4 py-2 rounded-xl bg-muted/50 border border-border text-muted-foreground font-semibold text-sm transition-all duration-200 hover:bg-muted hover:text-foreground active:scale-95"
-                                onClick={onClose}
+                                onClick={() => {
+                                    toast("Coming soon!", {
+                                        description: "This feature is not available yet.",
+                                        action: {
+                                            label: "Close",
+                                            onClick: () => {
+                                                toast.dismiss()
+                                            }
+                                        },
+                                        position: "top-center",
+                                        style: {
+                                            backgroundColor: "var(--background)",
+                                            color: "var(--foreground)",
+                                            border: "1px solid var(--border)",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                        }
+                                    })
+                                    onClose()
+                                }}
                             >
                                 Cancel
                             </button>

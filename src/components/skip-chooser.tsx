@@ -23,10 +23,10 @@ function SkipChooser() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center w-full pt-10">
+        <div className="flex flex-col items-center justify-center w-full max-w-full pt-10">
             <h1 className="text-2xl font-bold text-muted-foreground">Skip Chooser</h1>
             <p className="text-muted-foreground">Select the skip size that best suits your needs</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch w-full pt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch w-full max-w-full pt-10 px-2">
                 {skips.map((skip) => (
                     <Skip key={skip.id} skip={skip} onClick={() => handleSkipClick(skip)} />
                 ))}
