@@ -7,9 +7,11 @@ function App() {
   return (
     <ThemeProvider defaultTheme="light">
       <ThemeToggle />
-      <div className="bg-background min-h-screen w-screen p-10">
-        <TimeFrame />
-        <SkipChooser />
+      <div className="bg-background min-h-screen w-full overflow-x-hidden">
+        <div className="p-10">
+          <TimeFrame />
+          <SkipChooser />
+        </div>
       </div>
     </ThemeProvider>
   )
