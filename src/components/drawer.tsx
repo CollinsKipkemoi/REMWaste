@@ -28,7 +28,7 @@ export default function SkipDisplayDrawer({
             <div
                 className={`
                     fixed left-0 right-0 bottom-0 z-50
-                    w-full
+                    w-full max-w-full
                     bg-gradient-to-br from-card via-card/95 to-card
                     border-t border-border
                     rounded-t-3xl
@@ -38,6 +38,8 @@ export default function SkipDisplayDrawer({
                     pointer-events-auto
                     overflow-hidden
                     backdrop-blur-sm
+                    max-h-[85vh]
+                    overflow-y-auto
                 `}
                 onClick={e => e.stopPropagation()}
             >
@@ -51,8 +53,8 @@ export default function SkipDisplayDrawer({
                     <X size={18} />
                 </button>
 
-                <div className="relative p-4 max-w-4xl mx-auto">
-                    <div className="flex items-center justify-between gap-4 pt-2">
+                <div className="relative p-3 sm:p-4 w-full">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pt-2">
                         <div className="flex items-center gap-3">
                             <div className="p-2 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30">
                                 <Truck className="text-primary" size={20} />
@@ -68,7 +70,7 @@ export default function SkipDisplayDrawer({
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 text-sm">
+                        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm">
                             <div className="flex items-center gap-2">
                                 <MapPin className="text-primary" size={14} />
                                 <span className="text-foreground">{skip.area}</span>
@@ -86,15 +88,15 @@ export default function SkipDisplayDrawer({
                             </div>
                         </div>
 
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 w-full lg:w-auto">
                             <button
-                                className="py-2 px-4 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-200 hover:from-primary/90 hover:to-accent/90 hover:scale-105 active:scale-95"
+                                className="flex-1 lg:flex-none py-2 px-4 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-200 hover:from-primary/90 hover:to-accent/90 hover:scale-105 active:scale-95"
                                 onClick={onContinue}
                             >
                                 Continue Booking
                             </button>
                             <button
-                                className="px-4 py-2 rounded-xl bg-muted/50 border border-border text-muted-foreground font-semibold text-sm transition-all duration-200 hover:bg-muted hover:text-foreground active:scale-95"
+                                className="flex-1 lg:flex-none px-4 py-2 rounded-xl bg-muted/50 border border-border text-muted-foreground font-semibold text-sm transition-all duration-200 hover:bg-muted hover:text-foreground active:scale-95"
                                 onClick={onClose}
                             >
                                 Cancel
