@@ -117,7 +117,26 @@ export default function SkipDisplayDrawer({
                             </button>
                             <button
                                 className="flex-1 lg:flex-none px-4 py-2 rounded-xl bg-muted/50 border border-border text-muted-foreground font-semibold text-sm transition-all duration-200 hover:bg-muted hover:text-foreground active:scale-95"
-                                onClick={onClose}
+                                onClick={() => {
+                                    toast("Coming soon!", {
+                                        description: "This feature is not available yet.",
+                                        action: {
+                                            label: "Close",
+                                            onClick: () => {
+                                                toast.dismiss()
+                                            }
+                                        },
+                                        position: "top-center",
+                                        style: {
+                                            backgroundColor: "var(--background)",
+                                            color: "var(--foreground)",
+                                            border: "1px solid var(--border)",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                        }
+                                    })
+                                    onClose()
+                                }}
                             >
                                 Cancel
                             </button>
