@@ -11,30 +11,35 @@ const steps = [
 
 function TimeFrame() {
     return (
-        <ol className="flex items-center w-full justify-center">
-            {steps.map((step, idx) => {
-                const Icon = step.icon;
-                const isActive = step.state === 'active';
-                const bgColor = isActive ? 'bg-primary' : 'bg-muted';
-                const iconColor = isActive ? 'text-primary-foreground' : 'text-muted-foreground';
-                const labelColor = isActive ? 'text-foreground' : 'text-muted-foreground';
-                const lineColor = isActive ? 'bg-primary' : 'bg-muted';
+        <div className="w-full overflow-x-auto timeline-scrollbar">
+            <ol className="flex items-center w-max justify-center flex-nowrap px-2">
+                {steps.map((step, idx) => {
+                    const Icon = step.icon;
+                    const isActive = step.state === 'active';
+                    const bgColor = isActive ? 'bg-primary' : 'bg-muted';
+                    const iconColor = isActive ? 'text-primary-foreground' : 'text-muted-foreground';
+                    const labelColor = isActive ? 'text-foreground' : 'text-muted-foreground';
+                    const lineColor = isActive ? 'bg-primary' : 'bg-muted';
 
-                return (
-                    <li key={step.label} className="flex items-center">
-                        <div className="flex items-center hover:cursor-pointer">
-                            <div className={`flex items-center justify-center w-8 h-8 rounded-full ${bgColor}`}>
-                                <Icon className={`w-5 h-5 ${iconColor}`} />
+                    return (
+                        <li key={step.label} className="flex items-center">
+                            <div className="flex items-center hover:cursor-pointer group">
+                                <div className={`flex items-center justify-center w-8 h-8 rounded-full ${bgColor}`}>
+                                    <Icon className={`w-5 h-5 ${iconColor}`} />
+                                </div>
+                                <span className={`ml-2 text-sm font-medium ${labelColor} hidden sm:inline-block`}>
+                                    {step.label}
+                                </span>
+                                <span className="sr-only">{step.label}</span>
                             </div>
-                            <span className={`ml-2 text-sm font-medium ${labelColor}`}>{step.label}</span>
-                        </div>
-                        {idx < steps.length - 1 && (
-                            <div className={`w-16 h-0.5 mx-2 ${lineColor}`}></div>
-                        )}
-                    </li>
-                );
-            })}
-        </ol>
+                            {idx < steps.length - 1 && (
+                                <div className={`w-8 sm:w-16 h-0.5 mx-2 ${lineColor}`}></div>
+                            )}
+                        </li>
+                    );
+                })}
+            </ol>
+        </div>
     );
 }
 

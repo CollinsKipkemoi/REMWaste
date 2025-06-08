@@ -31,7 +31,7 @@ export default function Skip({ skip, onClick }: { skip: SkipData, onClick: (skip
             onClick={() => onClick(skip)}
         >
             <CardContent className="p-0">
-                <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-6 pb-4">
+                <div className="relative bg-gradient-to-br from-background to-muted p-6 pb-4">
                     <Badge
                         variant="secondary"
                         className="absolute top-3 right-3 font-bold bg-primary text-primary-foreground"
@@ -47,7 +47,7 @@ export default function Skip({ skip, onClick }: { skip: SkipData, onClick: (skip
                             </Badge>
                         )}
                         {skip.allowed_on_road && (
-                            <Badge variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
+                            <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
                                 <Truck className="w-3 h-3 mr-1" />
                                 Road OK
                             </Badge>
@@ -84,15 +84,15 @@ export default function Skip({ skip, onClick }: { skip: SkipData, onClick: (skip
 
                     <div className="grid grid-cols-2 gap-2 text-sm">
                         <div className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-2 text-blue-500" />
+                            <Calendar className="w-4 h-4 mr-2 text-primary" />
                             <span>{formatDays(skip.hire_period_days)} hire</span>
                         </div>
-                        {skip.allows_heavy_waste && (
-                            <div className="flex items-center">
-                                <Weight className="w-4 h-4 mr-2 text-green-500" />
-                                <span>Heavy waste OK</span>
-                            </div>
-                        )}
+                        <div className="flex items-center">
+                            <Weight className="w-4 h-4 mr-2 text-primary" />
+                            <span className="text-foreground text-xs">{skip.allows_heavy_waste ? "Heavy waste OK" : "No heavy waste"}</span>
+                        </div>
+
+
                     </div>
 
                     <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
