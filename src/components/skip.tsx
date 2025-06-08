@@ -89,7 +89,7 @@ export default function Skip({ skip, onClick }: { skip: SkipData, onClick: (skip
                         </div>
                         <div className="flex items-center">
                             <Weight className="w-4 h-4 mr-2 text-primary" />
-                            <span className="text-foreground text-xs">{skip.allows_heavy_waste ? "Heavy waste OK" : "No heavy waste"}</span>
+                            <span className="text-foreground text-xs">{skip.allows_heavy_waste ? "Heavy waste" : "No heavy waste"}</span>
                         </div>
 
 
