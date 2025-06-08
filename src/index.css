@@ -115,7 +115,29 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.timeline-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--muted);
+  padding-bottom: 1rem;
+}
+
+.timeline-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  background: transparent;
+  margin-top: 8px;
+}
+
+.timeline-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.timeline-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-foreground);
 }

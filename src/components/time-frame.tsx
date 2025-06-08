@@ -11,7 +11,7 @@ const steps = [
 
 function TimeFrame() {
     return (
-        <div className="w-full overflow-x-auto scrollbar-hide">
+        <div className="w-full overflow-x-auto timeline-scrollbar">
             <ol className="flex items-center w-max justify-center flex-nowrap px-2">
                 {steps.map((step, idx) => {
                     const Icon = step.icon;
