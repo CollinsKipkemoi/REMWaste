@@ -2,6 +2,7 @@ import TimeFrame from "@/components/time-frame"
 import SkipChooser from "@/components/skip-chooser"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <SkipChooser />
         </div>
       </div>
+      <Toaster />
     </ThemeProvider>
   )
 }
