@@ -7,14 +7,16 @@ import { Toaster } from "@/components/ui/sonner"
 function App() {
   return (
     <ThemeProvider defaultTheme="light">
-      <ThemeToggle />
-      <div className="bg-background min-h-screen w-full overflow-x-hidden">
-        <div className="p-10">
-          <TimeFrame />
-          <SkipChooser />
+      <div className="relative min-h-screen w-full max-w-full overflow-x-hidden">
+        <ThemeToggle />
+        <div className="bg-background min-h-screen w-full max-w-full">
+          <div className="p-4 sm:p-10 w-full max-w-full">
+            <TimeFrame />
+            <SkipChooser />
+          </div>
         </div>
+        <Toaster />
       </div>
-      <Toaster />
     </ThemeProvider>
   )
 }
